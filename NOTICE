@@ -1,0 +1,20 @@
+Deadkey
+Copyright 2026 Deadkey LLC
+
+This product includes software developed by Deadkey LLC.
+
+TRADEMARK NOTICE:
+"Deadkey" and "Deadkey Labs" are trademarks of Deadkey LLC.
+The Apache License 2.0 does not grant permission to use the trade names, trademarks,
+service marks, or product names of Deadkey LLC, except as required for reasonable
+and customary use in describing the origin of the Work and reproducing the content
+of this NOTICE file. Forks or derivative distributions must use a distinct name.
+
+THIRD-PARTY BENCHMARK & MODEL ATTRIBUTION:
+- Evaluation receipts reference the public ICLR 2025 LongMemEval benchmark
+  (xiaowu0162/longmemeval-cleaned); the LongMemEval dataset itself is NOT redistributed
+  in this repository.
+- Local model benchmark receipts (Gemma 4, Qwen 3/3.8, GLM-4.7-Flash, Ternary Bonsai)
+  report local measurements only; no third-party model weights are redistributed here.
+- Any separately published Qwen3-8B DPO fine-tune weights inherit the Apache-2.0 license
+  of Qwen/Qwen3-8B.

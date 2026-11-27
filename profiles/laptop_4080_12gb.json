@@ -1,0 +1,41 @@
+[
+  {
+    "name": "gemma4-12b-q4km-laptop",
+    "label": "Gemma 4 12B Q4_K_M (Legion 7i Pro · RTX 4080 12 GB Daily Driver)",
+    "role": "laptop_daily_companion",
+    "vram_est_gb": 8.4,
+    "tok_s_measured": 0.0,
+    "exe": "./engines/llama-server.exe",
+    "file": "./models/gemma-4-12b-it-Q4_K_M.gguf",
+    "ctx": 16384,
+    "slots": 2,
+    "tool_protocol": "openai_native",
+    "extra": ["-fa", "on", "-ctk", "q8_0", "-ctv", "q8_0", "--reasoning-budget", "0"]
+  },
+  {
+    "name": "qwen3-14b-q4km-laptop",
+    "label": "Qwen 3 14B Q4_K_M (Legion 7i Pro · Fast Tool & Coding Driver)",
+    "role": "laptop_coding_tools",
+    "vram_est_gb": 9.8,
+    "tok_s_measured": 0.0,
+    "exe": "./engines/llama-server.exe",
+    "file": "./models/Qwen3-14B-Q4_K_M.gguf",
+    "ctx": 16384,
+    "slots": 2,
+    "tool_protocol": "openai_native",
+    "extra": ["-fa", "on", "-ctk", "q8_0", "-ctv", "q8_0", "--chat-template-kwargs", "{\"enable_thinking\": false}"]
+  },
+  {
+    "name": "qwen3-8b-q6k-laptop",
+    "label": "Qwen 3 8B Q6_K (Legion 7i Pro · Ultra-Fast + Voice Co-Residency)",
+    "role": "laptop_voice_co_resident",
+    "vram_est_gb": 6.9,
+    "tok_s_measured": 0.0,
+    "exe": "./engines/llama-server.exe",
+    "file": "./models/Qwen3-8B-Q6_K.gguf",
+    "ctx": 16384,
+    "slots": 2,
+    "tool_protocol": "openai_native",
+    "extra": ["-fa", "on", "-ctk", "q8_0", "-ctv", "q8_0", "--chat-template-kwargs", "{\"enable_thinking\": false}"]
+  }
+]

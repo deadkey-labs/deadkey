@@ -1,0 +1,15 @@
+{
+  "agent_id": "blank-lab",
+  "display_name": "Deadkey",
+  "description": "Zero-PII model-agnostic epistemic verification and bi-temporal memory lab.",
+  "db_path": "data/memory.db",
+  "workspace_roots": [
+    "."
+  ],
+  "architecture": "arch_a",
+  "extra": {
+    "disk_equals_truth": true,
+    "cloud_privacy_wall": false,
+    "zero_pii": true
+  }
+}

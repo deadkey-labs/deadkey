@@ -1,0 +1,730 @@
+{
+  "timestamp": "2026-11-27T17:54:50.738245+00:00",
+  "benchmark": "ICLR 2025 LongMemEval (xiaowu0162/longmemeval-cleaned :: longmemeval_oracle.json)",
+  "split": "knowledge-update",
+  "model_label": "Qwen3.8-27B Dense (RTX 5090 32 GB)",
+  "dataset_sha256_prefix": "821a2034d219",
+  "count": 78,
+  "elapsed_s": 103.0,
+  "flat_rag_correct": 59,
+  "flat_rag_pct": 75.6,
+  "flat_rag_ci95": [
+    65.1,
+    83.8
+  ],
+  "deadkey_bitemporal_correct": 59,
+  "deadkey_bitemporal_pct": 75.6,
+  "deadkey_bitemporal_ci95": [
+    65.1,
+    83.8
+  ],
+  "delta_pp": 0.0,
+  "discordant_bt_wins_flat_loses": 8,
+  "discordant_flat_wins_bt_loses": 8,
+  "mcnemar_exact_p": 1.0,
+  "memory_gpu_vram_mib": 0,
+  "rows": [
+    {
+      "question_id": "6a1eabeb",
+      "question": "What was my personal best time in the charity 5K run?",
+      "gold": "25 minutes and 50 seconds (or 25:50)",
+      "flat_pred": "Your personal best time in the charity 5K run is 25:50.",
+      "flat_ok": true,
+      "bt_pred": "Your personal best time in the charity 5K run was 25:50.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "6aeb4375",
+      "question": "How many Korean restaurants have I tried in my city?",
+      "gold": "four",
+      "flat_pred": "Based on the retrieved notes, you have tried **four** different Korean restaurants in your city.",
+      "flat_ok": true,
+      "bt_pred": "You have tried four different Korean restaurants in your city.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "830ce83f",
+      "question": "Where did Rachel move to after her recent relocation?",
+      "gold": "the suburbs",
+      "flat_pred": "Based on the retrieved notes, Rachel moved to **Chicago**.\n\n(Note: One note mentions she \"moved back to the suburbs again,\" but the specific city identified in the context of visiting her and asking about neighborhoods is Chicago.)",
+      "flat_ok": true,
+      "bt_pred": "Rachel moved to Chicago.",
+      "bt_ok": false
+    },
+    {
+      "question_id": "852ce960",
+      "question": "What was the amount I was pre-approved for when I got my mortgage from Wells Fargo?",
+      "gold": "$400,000",
+      "flat_pred": "Based on the retrieved notes, you mentioned two different pre-approval amounts from Wells Fargo:\n\n1.  **$350,000** (mentioned in the context of buying a $325,000 house).\n2.  **$400,000** (mentioned in the context of setting up cable and TV services).\n\nThe notes do not specify which amount is the final or current pre-approval, as both",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, the most recent record (dated 2023-11-30) states that you were pre-approved for **$400,000** from Wells Fargo.\n\n(Note: An earlier record from 2023-08-11 mentioned a pre-approval of $350,000, but the later record supersedes it.)",
+      "bt_ok": true
+    },
+    {
+      "question_id": "945e3d21",
+      "question": "How often do I attend yoga classes to help with my anxiety?",
+      "gold": "Three times a week.",
+      "flat_pred": "You attend yoga classes twice a week.",
+      "flat_ok": false,
+      "bt_pred": "Based on the active bi-temporal memory, you attend yoga classes **twice a week**.\n\nThis is stated in the record from **2023-08-11**: *\"I've been doing yoga twice a week, which has really been helping me relax and focus.\"*",
+      "bt_ok": false
+    },
+    {
+      "question_id": "d7c942c3",
+      "question": "Is my mom using the same grocery list method as me?",
+      "gold": "Yes.",
+      "flat_pred": "Yes, your mom is using the same grocery list app as you, which allows you to easily share lists and keep track of what you need.",
+      "flat_ok": true,
+      "bt_pred": "Yes, your mom is using the same grocery list app as you, which allows you to easily share lists and keep track of what you need.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "71315a70",
+      "question": "How many hours have I spent on my abstract ocean sculpture?",
+      "gold": "10-12 hours",
+      "flat_pred": "Based on the retrieved notes, you have spent **10-12 hours** on your abstract ocean sculpture.",
+      "flat_ok": true,
+      "bt_pred": "You have spent 10-12 hours on your abstract ocean sculpture.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "89941a93",
+      "question": "How many bikes do I currently own?",
+      "gold": "4",
+      "flat_pred": "You currently own three bikes.",
+      "flat_ok": false,
+      "bt_pred": "Based on the active bi-temporal memory, you currently own **four** bikes.\n\nThis is stated in the record from **2023-10-10**: \"Since I'll have four bikes with me... I just got a new one recently, so I'll actually have four bikes with me on this trip - my road bike, mountain bike, commuter bike,...\"",
+      "bt_ok": true
+    },
+    {
+      "question_id": "ce6d2d27",
+      "question": "What day of the week do I take a cocktail-making class?",
+      "gold": "Friday",
+      "flat_pred": "Based on the retrieved notes, you take a cocktail-making class on **Friday**.\n\n(Note: One note mentions a class on Thursday, but the majority of the notes—specifically the first, second, and fourth—consistently state the class is on Friday.)",
+      "flat_ok": true,
+      "bt_pred": "You take a cocktail-making class on Fridays.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "9ea5eabc",
+      "question": "Where did I go on my most recent family trip?",
+      "gold": "Paris",
+      "flat_pred": "Based on the retrieved notes, your most recent family trip was to **Paris**.\n\nThe notes state: \"I'm actually thinking of going to Paris, we just went there as a family last month and it was amazing...\"",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, your most recent family trip was to **Paris**.\n\nThis is supported by multiple entries dated **2023-05-30**, where you state:\n*   \"we just went there as a family last month\" (referring to Paris)\n*   \"my recent family trip to Paris\"\n*   \"I recently went to Paris with my family\"",
+      "bt_ok": true
+    },
+    {
+      "question_id": "07741c44",
+      "question": "Where do I initially keep my old sneakers?",
+      "gold": "under my bed",
+      "flat_pred": "You initially keep your old sneakers under your bed for storage.",
+      "flat_ok": true,
+      "bt_pred": "Based on the active memory, your old sneakers are currently taking up space in your **closet** (specifically mentioned in the context of organizing your closet and storing them in a shoe rack).",
+      "bt_ok": false
+    },
+    {
+      "question_id": "a1eacc2a",
+      "question": "How many short stories have I written since I started writing regularly?",
+      "gold": "seven",
+      "flat_pred": "Based on the retrieved notes, you have written **7 short stories** since you started writing regularly.",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, the most recent record (dated 2023-05-30) states that you have completed **7** short stories since you started writing regularly.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "184da446",
+      "question": "How many pages of 'A Short History of Nearly Everything' have I read so far?",
+      "gold": "220",
+      "flat_pred": "Based on the retrieved notes, you have read up to **page 220** of *A Short History of Nearly Everything*.",
+      "flat_ok": true,
+      "bt_pred": "You have read up to page 220 of *A Short History of Nearly Everything*.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "031748ae",
+      "question": "How many engineers do I lead when I just started my new role as Senior Software Engineer? How many engineers do I lead now?",
+      "gold": "When you just started your new role as Senior Software Engineer, you led 4 engineers. Now, you lead 5 engineers",
+      "flat_pred": "Based on the retrieved notes, there is a discrepancy in the number of engineers mentioned:\n\n*   **When you just started:** The notes state, \"I lead a team of **4 engineers** in my new role as Senior Software Engineer.\"\n*   **Now:** The notes state, \"I now lead a team of **five engineers**.\"\n\nTherefore, you led **4** engineers when you started and lead **5** engineers now.",
+      "flat_ok": true,
+      "bt_pred": "When you just started your new role as Senior Software Engineer, you led **4** engineers.\n\nNow, you lead **5** engineers.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "4d6b87c8",
+      "question": "How many titles are currently on my to-watch list?",
+      "gold": "25",
+      "flat_pred": "Based on the retrieved notes, your to-watch list currently has **25 titles**.\n\n(Note: One note mentions 20 titles, but the most recent and consistent count across multiple entries is 25.)",
+      "flat_ok": true,
+      "bt_pred": "You currently have 25 titles on your to-watch list.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "0f05491a",
+      "question": "How many stars do I need to reach the gold level on my Starbucks Rewards app?",
+      "gold": "120",
+      "flat_pred": "Based on the retrieved notes, you need **125 stars** to reach the Gold level on the Starbucks Rewards app.",
+      "flat_ok": false,
+      "bt_pred": "You need **125 stars** to reach the Gold level on your Starbucks Rewards app.",
+      "bt_ok": false
+    },
+    {
+      "question_id": "08e075c7",
+      "question": "How long have I been using my Fitbit Charge 3?",
+      "gold": "9 months",
+      "flat_pred": "Based on the retrieved notes, you have been using your Fitbit Charge 3 for **9 months**.",
+      "flat_ok": true,
+      "bt_pred": "You have been using your Fitbit Charge 3 for 9 months.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "f9e8c073",
+      "question": "How many sessions of the bereavement support group did I attend?",
+      "gold": "five",
+      "flat_pred": "You attended three sessions of the bereavement support group.",
+      "flat_ok": false,
+      "bt_pred": "The active bi-temporal memory does not specify the number of sessions you attended in the bereavement support group. It only mentions that the group was helpful, the facilitator was kind, and you valued the sense of community.",
+      "bt_ok": false
+    },
+    {
+      "question_id": "41698283",
+      "question": "What type of camera lens did I purchase most recently?",
+      "gold": "a 70-200mm zoom lens",
+      "flat_pred": "Based on the retrieved notes, the most recently purchased camera lens is a **50mm prime lens**.\n\nThe notes state: \"Speaking of lenses, I recently got a new 50mm prime lens, which has been working out great.\"",
+      "flat_ok": false,
+      "bt_pred": "Based on the active bi-temporal memory, the most recent lens purchase mentioned is the **70-200mm zoom lens**.\n\nWhile the memory notes a 50mm prime lens purchase on 2023-03-11, the 70-200mm zoom lens is referenced in multiple entries dated 2023-08-30 (the latest date in the memory), where the user states they have",
+      "bt_ok": true
+    },
+    {
+      "question_id": "2698e78f",
+      "question": "How often do I see my therapist, Dr. Smith?",
+      "gold": "every week",
+      "flat_pred": "Based on the retrieved notes, you see Dr. Smith **every week**.\n\n(Note: One note mentions a session \"coming up soon\" and states it is \"every two weeks,\" but the other three notes consistently state \"every week.\" The most frequent and consistent information indicates a weekly schedule.)",
+      "flat_ok": true,
+      "bt_pred": "You see Dr. Smith every week.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "b6019101",
+      "question": "How many MCU films did I watch in the last 3 months?",
+      "gold": "5",
+      "flat_pred": "Based on the retrieved notes, you have mentioned two different numbers regarding MCU films watched in the last 3 months:\n\n1.  In one note, you state: \"I've actually watched **4** MCU films in the last 3 months.\"\n2.  In another note, you state: \"I've watched 12 films in the last 3 months, including **5** MCU films.\"\n\nTherefore, the notes contain conflicting information, citing either **",
+      "flat_ok": true,
+      "bt_pred": "You watched 5 MCU films in the last 3 months.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "45dc21b6",
+      "question": "How many of Emma's recipes have I tried out?",
+      "gold": "3",
+      "flat_pred": "Based on the retrieved notes, you have tried out **3** of Emma's recipes.\n\n(Note: One note mentions trying two, but a later note explicitly states, \"I've tried out 3 of Emma's recipes so far.\")",
+      "flat_ok": true,
+      "bt_pred": "You have tried out 3 of Emma's recipes.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "5a4f22c0",
+      "question": "What company is Rachel, an old colleague from my previous company, currently working at?",
+      "gold": "TechCorp",
+      "flat_pred": "Rachel is currently working at TechCorp.",
+      "flat_ok": true,
+      "bt_pred": "Rachel is currently working at TechCorp.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "6071bd76",
+      "question": "For the coffee-to-water ratio in my French press, did I switch to more water per tablespoon of coffee, or less?",
+      "gold": "You switched to less water (5 ounces) per tablespoon of coffee.",
+      "flat_pred": "Based on the retrieved notes, you switched to **more water** per tablespoon of coffee.\n\n*   In the first note, your ratio was **1 tablespoon of coffee for every 5 ounces of water**.\n*   In the second note, you stated that **1 tablespoon of coffee for every 6 ounces of water** is the perfect ratio for you.",
+      "flat_ok": false,
+      "bt_pred": "Based on the active memory, your current ratio is **1 tablespoon of coffee for every 5 ounces of water**.\n\nHowever, the provided memory does **not** contain any previous ratio or record of a switch. It only states your current ratio as of 2023-06-30. Therefore, it is not possible to determine from the available data whether you switched to more or less water per tablespoon compared to a prior setting.",
+      "bt_ok": false
+    },
+    {
+      "question_id": "e493bb7c",
+      "question": "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+      "gold": "in my bedroom",
+      "flat_pred": "Based on the retrieved notes, the painting \"Ethereal Dreams\" by Emma Taylor is currently hanging **above the user's bed** in their bedroom.\n\n(Note: One note mentions it being above a living room sofa, but the most recent and specific updates state it was moved to the bedroom above the bed.)",
+      "flat_ok": true,
+      "bt_pred": "The painting \"Ethereal Dreams\" by Emma Taylor is currently hanging above the bed in the user's bedroom.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "618f13b2",
+      "question": "How many times have I worn my new black Converse Chuck Taylor All Star sneakers?",
+      "gold": "six",
+      "flat_pred": "Based on the retrieved notes, you have worn your new black Converse Chuck Taylor All Star sneakers **six times**.\n\nThe notes indicate that you initially mentioned wearing them four times, but later stated, \"I just wore my new black Converse to run some errands yesterday, so that's six times now that I've worn them.\"",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, you have worn your new black Converse Chuck Taylor All Star sneakers **six times**.\n\n(Note: While an earlier entry mentioned four times, the most recent active record from 2023-05-24 states, \"so that's six times now that I've worn them.\")",
+      "bt_ok": true
+    },
+    {
+      "question_id": "72e3ee87",
+      "question": "How many episodes of the Science series have I completed on Crash Course?",
+      "gold": "50",
+      "flat_pred": "Based on the retrieved notes, you have completed **50 episodes** of the Crash Course Science series.",
+      "flat_ok": true,
+      "bt_pred": "You have completed 50 episodes of Crash Course's Science series.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "c4ea545c",
+      "question": "Do I go to the gym more frequently than I did previously?",
+      "gold": "Yes",
+      "flat_pred": "Yes, you go to the gym more frequently than you previously thought. You initially believed you worked out on Mondays, Wednesdays, and Fridays, but you corrected this to state that you actually go to the gym on Tuesdays, Thursdays, and Saturdays.",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, there is no record of a previous gym frequency to compare against. The only information provided is your current routine:\n\n- You go to the gym **three times a week** (Tuesdays, Thursdays, and Saturdays), as stated in the record from **2023-06-01**.\n- A later record from **2023-08-15** mentions you have been consistent",
+      "bt_ok": false
+    },
+    {
+      "question_id": "01493427",
+      "question": "How many new postcards have I added to my collection since I started collecting again?",
+      "gold": "25",
+      "flat_pred": "Based on the retrieved notes, you have added **25** new postcards to your collection since you started collecting again.\n\n(Note: One note mentions 17 new postcards, but a later note explicitly states, \"I just realized I've added 25 new postcards to my collection since I started collecting again,\" which appears to be the more recent and corrected count.)",
+      "flat_ok": true,
+      "bt_pred": "You have added 25 new postcards to your collection since you started collecting again.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "6a27ffc2",
+      "question": "How many videos of Corey Schafer's Python programming series have I completed so far?",
+      "gold": "30",
+      "flat_pred": "You have completed 30 videos of Corey Schafer's Python programming series.",
+      "flat_ok": true,
+      "bt_pred": "You have completed 30 videos of Corey Schafer's Python programming series.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "2133c1b5",
+      "question": "How long have I been living in my current apartment in Harajuku?",
+      "gold": "3 months",
+      "flat_pred": "Based on the retrieved notes, you have been living in your current apartment in Harajuku for **3 months**.\n\n(Note: One note mentions \"it's been a month now,\" but a later note explicitly states, \"I've been living in Harajuku for 3 months now,\" which is the most recent and specific duration provided.)",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, the most recent record (dated **2023-10-15**) states that you have been living in Harajuku for **3 months**.\n\n(Note: An earlier record from 2023-04-11 mentioned it had been \"a month,\" but the 2023-10-15 record is more recent and supersedes it.)",
+      "bt_ok": true
+    },
+    {
+      "question_id": "18bc8abd",
+      "question": "What brand of BBQ sauce am I currently obsessed with?",
+      "gold": "Kansas City Masterpiece",
+      "flat_pred": "Based on the retrieved notes, you are currently obsessed with **Kansas City Masterpiece BBQ sauce**.",
+      "flat_ok": true,
+      "bt_pred": "You are currently obsessed with Kansas City Masterpiece BBQ sauce.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "db467c8c",
+      "question": "How long have my parents been staying with me in the US?",
+      "gold": "nine months",
+      "flat_pred": "Based on the retrieved notes, your parents have been staying with you in the US for **nine months**.\n\n(Note: One note mentions \"six months,\" but the majority of the notes, including those specifically discussing the legal implications of their overstay, consistently state **nine months**.)",
+      "flat_ok": true,
+      "bt_pred": "Your parents have been staying with you for nine months.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "7a87bd0c",
+      "question": "How long have I been sticking to my daily tidying routine?",
+      "gold": "4 weeks",
+      "flat_pred": "Based on the retrieved notes, you have been sticking to your daily tidying routine for **3 to 4 weeks**.\n\n*   One note mentions it has been **3 weeks**.\n*   Another note mentions it has been **4 weeks**.",
+      "flat_ok": true,
+      "bt_pred": "You have been sticking to your daily tidying routine for 4 weeks.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "e61a7584",
+      "question": "How long have I had my cat, Luna?",
+      "gold": "9 months",
+      "flat_pred": "Based on the retrieved notes, you have had your cat, Luna, for **about 9 months**.",
+      "flat_ok": true,
+      "bt_pred": "Based on the most recent active record (dated 2023-11-30), you have had your cat, Luna, for about **9 months**.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "1cea1afa",
+      "question": "How many Instagram followers do I currently have?",
+      "gold": "600",
+      "flat_pred": "Based on the retrieved notes, there is no mention of the specific number of Instagram followers you currently have.",
+      "flat_ok": false,
+      "bt_pred": "You currently have 600 Instagram followers.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "ed4ddc30",
+      "question": "How many dozen eggs do we currently have stocked up in our refrigerator?",
+      "gold": "20",
+      "flat_pred": "Based on the retrieved notes, you have **30 dozen** eggs stocked up in the fridge.",
+      "flat_ok": false,
+      "bt_pred": "You currently have 20 dozen eggs stocked up in the refrigerator.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "8fb83627",
+      "question": "How many issues of National Geographic have I finished reading?",
+      "gold": "Five",
+      "flat_pred": "Based on the retrieved notes, you have finished **five** issues of National Geographic.\n\n(Note: While earlier notes mention finishing three issues, the most recent and specific entries state, \"I've finished five issues so far\" and \"I just finished my fifth issue.\")",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, the most recent record (dated 2023-07-15) states that you have **finished five issues** of National Geographic.\n\n(Note: An earlier record from 2023-04-20 mentioned finishing three issues, but this has been superseded by the later update.)",
+      "bt_ok": true
+    },
+    {
+      "question_id": "b01defab",
+      "question": "Did I finish reading 'The Nightingale' by Kristin Hannah?",
+      "gold": "Yes",
+      "flat_pred": "Yes, you finished reading \"The Nightingale\" by Kristin Hannah. You mentioned in your notes that you \"just finished\" it and described it as \"amazing\" and \"a powerful and emotional read.\"",
+      "flat_ok": true,
+      "bt_pred": "Yes, you finished reading *The Nightingale* by Kristin Hannah.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "22d2cb42",
+      "question": "Where did I get my guitar serviced?",
+      "gold": "The music shop on Main St.",
+      "flat_pred": "You got your guitar serviced at the music shop on Main St.",
+      "flat_ok": true,
+      "bt_pred": "You got your guitar serviced at the music shop on Main St, which is called \"Rhythm Central.\"",
+      "bt_ok": true
+    },
+    {
+      "question_id": "0e4e4c46",
+      "question": "What is my current highest score in Ticket to Ride?",
+      "gold": "132 points",
+      "flat_pred": "Based on the retrieved notes, your current highest score in Ticket to Ride is **132 points**.",
+      "flat_ok": true,
+      "bt_pred": "Your current highest score in Ticket to Ride is 132 points.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "4b24c848",
+      "question": "How many tops have I bought from H&M so far?",
+      "gold": "five",
+      "flat_pred": "Based on the retrieved notes, you have bought **five tops** from H&M so far.",
+      "flat_ok": true,
+      "bt_pred": "You have bought five tops from H&M so far.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "7e974930",
+      "question": "How much did I earn at the Downtown Farmers Market on my most recent visit?",
+      "gold": "$420",
+      "flat_pred": "You earned $420 at the Downtown Farmers Market on your most recent visit.",
+      "flat_ok": true,
+      "bt_pred": "You earned **$420** at the Downtown Farmers Market on your most recent visit.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "603deb26",
+      "question": "How many times have I tried making a Negroni at home since my friend Emma showed me how to make it?",
+      "gold": "10",
+      "flat_pred": "Based on the retrieved notes, you have tried making a Negroni at home **10 times** since your friend Emma showed you how to make it.",
+      "flat_ok": true,
+      "bt_pred": "You have tried making a Negroni at home 10 times since your friend Emma showed you how to make it.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "59524333",
+      "question": "What time do I usually go to the gym?",
+      "gold": "6:00 pm",
+      "flat_pred": "You usually go to the gym at 7:00 pm on Mondays, Wednesdays, and Fridays.",
+      "flat_ok": false,
+      "bt_pred": "Based on the active memory, you usually go to the gym at **6:00 pm** (specifically mentioned in the context of needing to finish a meeting before heading to the gym on Tuesday).",
+      "bt_ok": true
+    },
+    {
+      "question_id": "5831f84d",
+      "question": "How many Crash Course videos have I watched in the past few weeks?",
+      "gold": "15",
+      "flat_pred": "Based on the retrieved notes, you have mentioned watching **15** Crash Course videos in the past few weeks.\n\n(Note: Other notes mention 10 and 12 videos, but the most recent and highest count provided is 15.)",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, the most recent record (dated 2023-09-30) states that you have watched **15** Crash Course videos in the past few weeks.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "eace081b",
+      "question": "Where am I planning to stay for my birthday trip to Hawaii?",
+      "gold": "Oahu",
+      "flat_pred": "You are planning to stay on Oahu.",
+      "flat_ok": true,
+      "bt_pred": "You are planning to stay on Oahu.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "affe2881",
+      "question": "How many different species of birds have I seen in my local park?",
+      "gold": "32",
+      "flat_pred": "Based on the retrieved notes, you have seen **32** different species of birds in your local park.\n\n(Note: While an earlier note mentions 27 species, a later note states that seeing a Northern Flicker \"brings my total species count to 32,\" which is the most recent and highest count provided.)",
+      "flat_ok": true,
+      "bt_pred": "You have seen **32** different species of birds in your local park.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "50635ada",
+      "question": "What was my previous frequent flyer status on United Airlines before I got the current status?",
+      "gold": "Premier Silver",
+      "flat_pred": "Based on the retrieved notes, your previous frequent flyer status on United Airlines was **Premier Silver**.\n\nThe notes state: \"I actually just hit 20,000 miles on United Airlines, which means I'm finally eligible for Premier Silver status.\" Later, you mention having \"just reached Premier Gold status,\" indicating that Premier Silver was the status you held before upgrading to Premier Gold.",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, there is no record of a previous frequent flyer status prior to your current one. The only status mentioned is that you \"just reached Premier Gold status\" as of May 30, 2023. Therefore, your previous status is not specified in the available data.",
+      "bt_ok": false
+    },
+    {
+      "question_id": "e66b632c",
+      "question": "What was my previous personal best time for the charity 5K run?",
+      "gold": "27 minutes and 45 seconds",
+      "flat_pred": "Your previous personal best time for the charity 5K run was 26 minutes and 30 seconds.",
+      "flat_ok": false,
+      "bt_pred": "Your previous personal best time for the charity 5K run was **26 minutes and 30 seconds**.",
+      "bt_ok": false
+    },
+    {
+      "question_id": "0ddfec37",
+      "question": "How many autographed baseballs have I added to my collection in the first three months of collection?",
+      "gold": "15",
+      "flat_pred": "Based on the retrieved notes, you have added **20 autographed baseballs** to your collection in the past few months.",
+      "flat_ok": false,
+      "bt_pred": "Based on the active bi-temporal memory, you added **15** autographed baseballs in the first three months of your collection (as stated in the record from 2023-07-11: \"that's 15 autographed baseballs since I started collecting three months ago!\").",
+      "bt_ok": true
+    },
+    {
+      "question_id": "f685340e",
+      "question": "How often do I play tennis with my friends at the local park previously? How often do I play now?",
+      "gold": "Previously, you play tennis with your friends at the local park every week (on Sunday). Currently, you play tennis every other week (on Sunday).",
+      "flat_pred": "Based on the retrieved notes, you play tennis with your friends at the local park **every other week**. This frequency is mentioned in the context of your current plans (\"like we do every other week\") and your past experiences (\"reminds me of my own weekly tennis sessions with friends\" — though this says \"weekly,\" the more specific and repeated detail is \"every other week\").\n\nHowever, there is a slight inconsistency in the notes:\n- One note says: \"I",
+      "flat_ok": false,
+      "bt_pred": "Based on the active bi-temporal memory, you play tennis with your friends at the local park **every other week**.\n\nThere is no record in the provided memory indicating a change in this frequency, so the current frequency is also **every other week**.",
+      "bt_ok": false
+    },
+    {
+      "question_id": "cc5ded98",
+      "question": "How much time do I dedicate to coding exercises each day?",
+      "gold": "about two hours",
+      "flat_pred": "Based on the retrieved notes, you have mentioned dedicating **about two hours each day** to coding exercises. (One earlier note mentioned about an hour, but the more recent and repeated figure is two hours.)",
+      "flat_ok": true,
+      "bt_pred": "You dedicate about two hours each day to coding exercises.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "dfde3500",
+      "question": "What day of the week did I meet with my previous language exchange tutor Juan?",
+      "gold": "Wednesday",
+      "flat_pred": "Based on the retrieved notes, there is no specific day of the week mentioned for your language exchange class with Juan. The notes only state that you are trying to plan your schedule and ask to be reminded what day the class is, but the answer is not provided in the text.",
+      "flat_ok": false,
+      "bt_pred": "You met with your language exchange tutor Juan on **Wednesday** evening.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "69fee5aa",
+      "question": "How many pre-1920 American coins do I have in my collection?",
+      "gold": "38",
+      "flat_pred": "You have a total of 37 pre-1920 American coins in your collection.",
+      "flat_ok": false,
+      "bt_pred": "Based on the active bi-temporal memory, there is no specific total count provided for your pre-1920 American coin collection. The records only mention that you **added** a 1915-S Barber quarter to your collection of pre-1920 American coins, but they do not state the total number of coins you possess in that category.",
+      "bt_ok": false
+    },
+    {
+      "question_id": "7401057b",
+      "question": "How many free night's stays can I redeem at any Hilton property with my accumulated points?",
+      "gold": "Two",
+      "flat_pred": "Based on the retrieved notes, you have accumulated enough points for **two** free night's stays at any Hilton property.",
+      "flat_ok": true,
+      "bt_pred": "Based on the active memory, you have accumulated enough points for **two free night's stays** at any Hilton property.\n\n(Note: While an earlier record from 2023-05-20 mentioned a single free night, the more recent record from 2023-05-28 updates this to two free nights.)",
+      "bt_ok": true
+    },
+    {
+      "question_id": "cf22b7bf",
+      "question": "How much weight have I lost since I started going to the gym consistently?",
+      "gold": "10 pounds",
+      "flat_pred": "You have lost 10 pounds since you started going consistently to the gym 3 months ago.",
+      "flat_ok": true,
+      "bt_pred": "You have lost 10 pounds since you started going consistently to the gym 3 months ago.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "a2f3aa27",
+      "question": "How many followers do I have on Instagram now?",
+      "gold": "1300",
+      "flat_pred": "Based on the retrieved notes, you have **1,250 followers** on Instagram.",
+      "flat_ok": false,
+      "bt_pred": "Based on the active memory, you have **1,250 followers** on Instagram (as noted in the record from 2023-05-28).\n\nNote: A later entry from the same date mentions you *think* you're close to 1,300, but the specific confirmed number provided is 1,250.",
+      "bt_ok": false
+    },
+    {
+      "question_id": "c7dc5443",
+      "question": "What is my current record in the recreational volleyball league?",
+      "gold": "5-2",
+      "flat_pred": "Your current record in the recreational volleyball league is 5-2.",
+      "flat_ok": true,
+      "bt_pred": "Your current record in the recreational volleyball league (with the Net Ninjas) is 5-2.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "06db6396",
+      "question": "How many projects have I completed since starting painting classes?",
+      "gold": "5",
+      "flat_pred": "Based on the retrieved notes, you have completed **5 projects** since starting painting classes.",
+      "flat_ok": true,
+      "bt_pred": "You have completed 5 projects since starting painting classes.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "3ba21379",
+      "question": "What type of vehicle model am I currently working on?",
+      "gold": "Ford F-150 pickup truck",
+      "flat_pred": "Based on the retrieved notes, you are currently working on a **Ford Mustang Shelby GT350R** model.",
+      "flat_ok": false,
+      "bt_pred": "You are currently working on a Ford F-150 pickup truck model.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "9bbe84a2",
+      "question": "What was my previous goal for my Apex Legends level before I updated my goal?",
+      "gold": "level 100",
+      "flat_pred": "Based on the retrieved notes, your previous goal was to reach **level 100** before the end of the year. You later updated your goal to reach **level 150**.",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, there is no record of a previous goal that was updated. The only level goal mentioned is **level 150**, which appears consistently in the entries from 2023-09-30.",
+      "bt_ok": false
+    },
+    {
+      "question_id": "10e09553",
+      "question": "How many largemouth bass did I catch with Alex on the earlier fishing trip to Lake Michigan before the 7/22 trip?",
+      "gold": "7",
+      "flat_pred": "You caught 7 largemouth bass with Alex on the earlier fishing trip to Lake Michigan on 7/10.",
+      "flat_ok": true,
+      "bt_pred": "Based on the active memory, there is no record of a fishing trip to Lake Michigan with Alex that occurred **before** the 7/22 trip. The only trip mentioned with a specific date and catch count is the one on **7/22**, where you caught **9 largemouth bass**.\n\nTherefore, the number of largemouth bass caught on an earlier trip is **0** (or not recorded).",
+      "bt_ok": true
+    },
+    {
+      "question_id": "dad224aa",
+      "question": "What time do I wake up on Saturday mornings?",
+      "gold": "7:30 am",
+      "flat_pred": "Based on the retrieved notes, you have mentioned two different wake-up times for Saturday mornings:\n\n1.  **7:30 am**: In one note, you state, \"I like to wake up at 7:30 am on Saturdays and fit in a cup of coffee beforehand.\"\n2.  **8:30 am**: In two other notes, you state, \"I've been waking up around 8:30 am on Saturdays\" and",
+      "flat_ok": true,
+      "bt_pred": "Based on the active memory, you wake up at **7:30 am** on Saturday mornings (as noted in the record from 2023-05-28).\n\n*Note: An earlier record from 2023-05-24 mentioned waking up at 8:30 am, but the more recent 2023-05-28 record specifies 7:30 am.*",
+      "bt_ok": true
+    },
+    {
+      "question_id": "ba61f0b9",
+      "question": "How many women are on the team led by my former manager Rachel?",
+      "gold": "6",
+      "flat_pred": "Based on the retrieved notes, there is a slight discrepancy in the numbers mentioned:\n\n*   One note states Rachel's team has **6 women** out of 10 people.\n*   Another note states that **half** of the 10 people are women (which would be 5).\n*   A third note specifically asks about the roles of the **5 women** on the team.\n\nThe most frequently cited specific number in the context of the team",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, the most recent record (dated 2023-07-20) states that Rachel's team has **6 women** out of 10 people.\n\n(Note: An earlier record from 2023-01-18 mentioned \"half of them are women\" or \"5 women,\" but the 2023-07-20 record is more recent and explicitly states",
+      "bt_ok": true
+    },
+    {
+      "question_id": "42ec0761",
+      "question": "Do I have a spare screwdriver for opening up my laptop?",
+      "gold": "Yes",
+      "flat_pred": "Yes, you have a spare screwdriver that you picked up when you organized your computer desk a while back.",
+      "flat_ok": true,
+      "bt_pred": "Yes, you have a spare screwdriver that you picked up when you organized your computer desk a while back.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "5c40ec5b",
+      "question": "How many times have I met up with Alex from Germany?",
+      "gold": "We've met up twice.",
+      "flat_pred": "You have met up with Alex from Germany twice.",
+      "flat_ok": true,
+      "bt_pred": "You have met up with Alex from Germany twice.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "c6853660",
+      "question": "Did I mostly recently increase or decrease the limit on the number of cups of coffee in the morning?",
+      "gold": "You increased the limit (from one cup to two cups)",
+      "flat_pred": "Based on the retrieved notes, you **increased** the limit on the number of cups of coffee in the morning.\n\nOne note states: \"I have increased the limit to two cups,\" while an earlier note mentions having \"cut back to just one cup.\" The most recent context indicates the limit is now two cups.",
+      "flat_ok": true,
+      "bt_pred": "You increased the limit on the number of cups of coffee in the morning.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "26bdc477",
+      "question": "How many trips have I taken my Canon EOS 80D camera on?",
+      "gold": "five",
+      "flat_pred": "Based on the retrieved notes, you have taken your Canon EOS 80D camera on **eight trips** in total.\n\nThis is calculated by adding the **three trips** mentioned in the first note (Yellowstone, Yosemite, and the Grand Canyon) to the **five trips** mentioned in the second note.",
+      "flat_ok": true,
+      "bt_pred": "You have taken your Canon EOS 80D on five trips.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "0977f2af",
+      "question": "What new kitchen gadget did I invest in before getting the Air Fryer?",
+      "gold": "Instant Pot",
+      "flat_pred": "Based on the retrieved notes, you invested in a **new Instant Pot** before getting the Air Fryer.",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory provided, there is no record of any kitchen gadget you invested in **before** getting the Air Fryer. The memory only mentions that you got the Air Fryer \"yesterday\" (relative to the 2023-05-21 entry) and discusses using it, but does not list any prior purchases.",
+      "bt_ok": false
+    },
+    {
+      "question_id": "6aeb4375_abs",
+      "question": "How many Italian restaurants have I tried in my city?",
+      "gold": "The information provided is not enough. You mentioned trying Korean restaurants but not Italian restaurants.",
+      "flat_pred": "Based on the retrieved notes, there is no mention of Italian restaurants. The notes only discuss Korean restaurants (four tried in your city, three in another city) and an Indian restaurant. Therefore, the number of Italian restaurants you have tried is not specified in the provided information.",
+      "flat_ok": true,
+      "bt_pred": "Based on the active memory provided, there is no mention of Italian restaurants. The records only reference Korean restaurants (four tried) and an Indian restaurant.\n\nTherefore, the number of Italian restaurants you have tried is **0** (or not specified in the memory).",
+      "bt_ok": false
+    },
+    {
+      "question_id": "031748ae_abs",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "gold": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "flat_pred": "Based on the retrieved notes, when you started your new role, you led a team of **4 engineers**.\n\n(Note: The notes mention a later update where you lead a team of five engineers, but the initial count upon starting the role was 4.)",
+      "flat_ok": false,
+      "bt_pred": "Based on the active memory, you lead a team of **4 engineers** in your role as Senior Software Engineer.",
+      "bt_ok": false
+    },
+    {
+      "question_id": "2698e78f_abs",
+      "question": "How often do I see Dr. Johnson?",
+      "gold": "The information provided is not enough. You mentioned seeing Dr. Smith but not Dr. Johnson.",
+      "flat_pred": "Based on the retrieved notes, there is no mention of a \"Dr. Johnson.\" The notes only reference **Dr. Smith**, whom you see either **every week** or **every two weeks**, depending on the specific note.",
+      "flat_ok": true,
+      "bt_pred": "Based on the active memory provided, there is no mention of a \"Dr. Johnson.\" The records only state that you see **Dr. Smith** every week.",
+      "bt_ok": true
+    },
+    {
+      "question_id": "2133c1b5_abs",
+      "question": "How long have I been living in my current apartment in Shinjuku?",
+      "gold": "The information provided is not enough. You mentioned living in Harajuku but not Shinjuku.",
+      "flat_pred": "Based on the retrieved notes, you have been living in your current apartment in **Harajuku** (not Shinjuku) for **3 months**.",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, you have not been living in an apartment in Shinjuku. The records indicate that you have been living in **Harajuku**.\n\nSpecifically, as of **2023-10-15**, you mentioned you had been living in Harajuku for **3 months**. (An earlier record from 2023-04-11 noted you had been there for a month, but the",
+      "bt_ok": true
+    },
+    {
+      "question_id": "0ddfec37_abs",
+      "question": "How many autographed football have I added to my collection in the first three months of collection?",
+      "gold": "The information provided is not enough. You mentioned collecting autographed baseball but not football.",
+      "flat_pred": "Based on the retrieved notes, there is no mention of autographed **footballs**. The notes only reference autographed **baseballs**:\n\n- One note states you have **15 autographed baseballs** since starting to collect three months ago.\n- Another note states you have added **20 autographed baseballs** in the past few months.\n\nThere is no information provided about autographed footballs.",
+      "flat_ok": true,
+      "bt_pred": "Based on the active memory, you have not added any autographed **footballs** to your collection.\n\nThe records indicate you have added **autographed baseballs**:\n- On [2023-05-22], you mentioned having **15** autographed baseballs since starting to collect three months ago.\n- On [2023-05-25], you mentioned adding **20** autographed baseballs in the",
+      "bt_ok": false
+    },
+    {
+      "question_id": "f685340e_abs",
+      "question": "How often do I play table tennis with my friends at the local park?",
+      "gold": "The information provided is not enough. You mentioned playing tennis but not table tennis.",
+      "flat_pred": "Based on the retrieved notes, you play **tennis** (not table tennis) with your friends at the local park **every other week**.",
+      "flat_ok": false,
+      "bt_pred": "Based on the active memory, you play **tennis** (not table tennis) with your friends at the local park **every other week** (bi-weekly).",
+      "bt_ok": false
+    },
+    {
+      "question_id": "89941a94",
+      "question": "Before I purchased the gravel bike, do I have other bikes in addition to my mountain bike and my commuter bike?",
+      "gold": "Yes. (You have a road bike too.)",
+      "flat_pred": "Yes, before purchasing the gravel bike, you also had a road bike. The notes state that you currently have three bikes (road, mountain, and commuter) and later mention having four bikes after getting a new one (the gravel bike).",
+      "flat_ok": true,
+      "bt_pred": "Based on the active bi-temporal memory, yes. In addition to your mountain bike and commuter bike, you also have a **road bike** and a **hybrid bike**.\n\nThe records indicate you have four bikes total for your trip:\n1. Road bike\n2. Mountain bike\n3. Commuter bike\n4. Hybrid bike (referred to as a \"new hybrid bike\" in the 2023-05-29 entry)",
+      "bt_ok": true
+    },
+    {
+      "question_id": "07741c45",
+      "question": "Where do I currently keep my old sneakers?",
+      "gold": "in a shoe rack in my closet",
+      "flat_pred": "You currently keep your old sneakers under your bed.",
+      "flat_ok": false,
+      "bt_pred": "Based on the active memory, your old sneakers are currently **taking up space** (implying they are not yet organized or stored in the shoe rack you plan to use this weekend).",
+      "bt_ok": false
+    }
+  ]
+}

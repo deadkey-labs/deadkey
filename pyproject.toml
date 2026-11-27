@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deadkey"
+version = "0.9.5"
+description = "A local AI that can't lie about what's on your disk — 0-VRAM bi-temporal SQLite memory, 0.01ms epistemic gate, and cartridge-isolated MCP/A2A/OpenAI proxy."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+dependencies = []
+
+[project.urls]
+Homepage = "https://deadkey.dev"
+Repository = "https://github.com/deadkey-labs/deadkey"
+Issues = "https://github.com/deadkey-labs/deadkey/issues"
+
+[project.scripts]
+deadkey-doctor = "deadkey.doctor:main"
+deadkey-server = "deadkey.server:main"
+deadkey-mcp = "deadkey.mcp_server:main"
+deadkey-proxy = "deadkey.epistemic_proxy:main"
+
+[tool.setuptools.packages.find]
+include = ["deadkey*"]

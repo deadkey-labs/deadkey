@@ -1,0 +1,46 @@
+[
+  {
+    "name": "gemma4-31b-vision-example",
+    "label": "Gemma 4 31B + Vision (Dense · llama.cpp CUDA 13.5)",
+    "role": "companion_voice_vision",
+    "engine_type": "llama_server",
+    "vram_est_gb": 23.8,
+    "tok_s_measured": 66.4,
+    "exe": "./engines/llama-b12780-cu135/llama-server.exe",
+    "file": "${MODELS_DIR}/gemma-4-31B-it.Q4_K_M.gguf",
+    "ctx": 32768,
+    "slots": 2,
+    "tool_protocol": "openai_native",
+    "extra": ["-fa", "on", "--mmproj", "${MODELS_DIR}/gemma-4-31B-it.mmproj-f16.gguf", "--reasoning-budget", "0"]
+  },
+  {
+    "name": "inkling2-mini-strata-example",
+    "label": "Inkling 2 Mini on Strata CUDA 13 (133 t/s · FP8 KV)",
+    "role": "coding_rsi_strata",
+    "engine_type": "strata",
+    "vram_est_gb": 23.0,
+    "tok_s_measured": 132.8,
+    "exe": "./engines/strata-cu13/inkling/strata-inkling.exe",
+    "file": "${MODELS_DIR}/Inkling-2-Mini-Q5_K_M.gguf",
+    "strata_config": "./engines/strata-cu13/strata_inkling.json",
+    "strata_terminal_dir": "./engines/Strata/terminal",
+    "ctx": 32768,
+    "slots": 2,
+    "tool_protocol": "openai_native",
+    "extra": []
+  },
+  {
+    "name": "qwen36-35b-mtp-example",
+    "label": "Qwen 3.6 35B-A3B MTP (301 t/s · Speculative Draft-MTP)",
+    "role": "companion_fast_distill",
+    "engine_type": "llama_server",
+    "vram_est_gb": 23.2,
+    "tok_s_measured": 301.4,
+    "exe": "./engines/llama-b12780-cu135/llama-server.exe",
+    "file": "${MODELS_DIR}/Qwen3.6-35B-A3B-MTP-Q4_K_M.gguf",
+    "ctx": 32768,
+    "slots": 2,
+    "tool_protocol": "openai_native",
+    "extra": ["-fa", "on", "--spec-type", "draft-mtp", "--spec-draft-n-max", "3", "--chat-template-kwargs", "{\"enable_thinking\": false}"]
+  }
+]

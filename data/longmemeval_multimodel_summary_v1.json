@@ -1,0 +1,114 @@
+{
+  "benchmark": "ICLR 2025 LongMemEval (knowledge-update split, 4 distinct model architectures, 2 GPU tiers)",
+  "dataset_sha256_prefix": "821a2034d219",
+  "memory_gpu_vram_mib": 0,
+  "pooled": {
+    "n": 312,
+    "flat_correct": 219,
+    "flat_pct": 70.2,
+    "flat_ci95": [
+      64.9,
+      75.0
+    ],
+    "bt_correct": 239,
+    "bt_pct": 76.6,
+    "bt_ci95": [
+      71.6,
+      81.0
+    ],
+    "delta_pp": 6.4,
+    "bt_wins_flat_loses": 44,
+    "flat_wins_bt_loses": 24,
+    "mcnemar_exact_p": 0.020527
+  },
+  "models": [
+    {
+      "label": "Gemma-4-31B Dense (RTX 5090 32 GB)",
+      "file": "longmemeval_knowledge_update_v1.json",
+      "n": 78,
+      "flat_correct": 60,
+      "flat_pct": 76.9,
+      "flat_ci95": [
+        66.4,
+        84.9
+      ],
+      "bt_correct": 65,
+      "bt_pct": 83.3,
+      "bt_ci95": [
+        73.5,
+        90.0
+      ],
+      "delta_pp": 6.4,
+      "bt_wins_flat_loses": 9,
+      "flat_wins_bt_loses": 4,
+      "mcnemar_exact_p": 0.266846,
+      "elapsed_s": 106.8
+    },
+    {
+      "label": "GLM-4.7-Flash 30B-A3B MoE (RTX 5090 32 GB)",
+      "file": "longmemeval_knowledge_update_glm47_flash.json",
+      "n": 78,
+      "flat_correct": 45,
+      "flat_pct": 57.7,
+      "flat_ci95": [
+        46.6,
+        68.0
+      ],
+      "bt_correct": 58,
+      "bt_pct": 74.4,
+      "bt_ci95": [
+        63.7,
+        82.7
+      ],
+      "delta_pp": 16.7,
+      "bt_wins_flat_loses": 19,
+      "flat_wins_bt_loses": 6,
+      "mcnemar_exact_p": 0.014633,
+      "elapsed_s": 31.1
+    },
+    {
+      "label": "Ternary-Bonsai-2.5-27B 1.58b (RTX 4080 12 GB)",
+      "file": "longmemeval_knowledge_update_ternary27b_4080.json",
+      "n": 78,
+      "flat_correct": 55,
+      "flat_pct": 70.5,
+      "flat_ci95": [
+        59.6,
+        79.5
+      ],
+      "bt_correct": 57,
+      "bt_pct": 73.1,
+      "bt_ci95": [
+        62.3,
+        81.7
+      ],
+      "delta_pp": 2.6,
+      "bt_wins_flat_loses": 8,
+      "flat_wins_bt_loses": 6,
+      "mcnemar_exact_p": 0.790527,
+      "elapsed_s": 193.8
+    },
+    {
+      "label": "Qwen3.8-27B Dense (RTX 5090 32 GB)",
+      "file": "longmemeval_knowledge_update_qwen38_27b.json",
+      "n": 78,
+      "flat_correct": 59,
+      "flat_pct": 75.6,
+      "flat_ci95": [
+        65.1,
+        83.8
+      ],
+      "bt_correct": 59,
+      "bt_pct": 75.6,
+      "bt_ci95": [
+        65.1,
+        83.8
+      ],
+      "delta_pp": 0.0,
+      "bt_wins_flat_loses": 8,
+      "flat_wins_bt_loses": 8,
+      "mcnemar_exact_p": 1.0,
+      "elapsed_s": 103.0
+    }
+  ]
+}

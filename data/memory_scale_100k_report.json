@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-11-27T17:49:36.253310+00:00",
+  "ok": true,
+  "record_count": 100000,
+  "db_size_mb": 39.77,
+  "gpu_vram_mib": 0,
+  "insert_100k_seconds": 0.72,
+  "stats_after_100k": {
+    "ledger_total": 100000,
+    "observations_active": 49900,
+    "observations_inactive": 49900,
+    "transitions": 200,
+    "semantic_active": 100,
+    "semantic_retired": 100,
+    "threads_total": 0,
+    "tendencies": 0,
+    "outcomes": 0,
+    "changelog": 0,
+    "core_blocks": 0,
+    "retrieval_stats": 0
+  },
+  "planted_contradictions": 200,
+  "active_hits_found": 200,
+  "stale_belief_leaks": 0,
+  "fts5_latency_ms": {
+    "p50": 0.05,
+    "p95": 119.62,
+    "p99": 132.73
+  },
+  "concurrency_8_threads": {
+    "total_ops": 600,
+    "seconds": 0.14,
+    "lock_errors": 0,
+    "errors": []
+  },
+  "total_elapsed_s": 12.74
+}

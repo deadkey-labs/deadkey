@@ -1,0 +1,324 @@
+{
+  "timestamp": "2026-11-27T04:17:47.008138+00:00",
+  "method": "Local Epistemic RLVR via GRPO (Programmatic EpistemicCommitGate Verifier)",
+  "base_model": "unsloth/Qwen3-8B-unsloth-bnb-4bit",
+  "init_adapter": "cartridges\\blank-lab\\data\\sleep\\qwen3_8b_epistemic_125b_lora",
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "task_count": 54,
+  "max_steps": 60,
+  "num_generations": 6,
+  "zero_pii": true,
+  "teacher_free": false,
+  "train_s": 169.4,
+  "total_s": 271.3,
+  "train_loss": -0.03096,
+  "early_mean_reward": -0.307,
+  "late_mean_reward": -0.1543,
+  "reward_delta": 0.1527,
+  "early_verifiable_pass_rate": 0.0,
+  "late_verifiable_pass_rate": 0.011,
+  "out_gguf": "D:\\Models\\GGUF-MTP\\Qwen3-8B-Epistemic-DPO-GRPO-Q4_K_M.gguf",
+  "out_gib": 4.68,
+  "steps": [
+    {
+      "call": 1,
+      "mean_reward": -0.778,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 2,
+      "mean_reward": -0.1333,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 3,
+      "mean_reward": -0.8628,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 4,
+      "mean_reward": -0.9667,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 5,
+      "mean_reward": -0.223,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 6,
+      "mean_reward": 0.1588,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 7,
+      "mean_reward": -0.4218,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 8,
+      "mean_reward": 0.181,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 9,
+      "mean_reward": -0.9558,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 10,
+      "mean_reward": 0.1513,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 11,
+      "mean_reward": -0.9332,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 12,
+      "mean_reward": 0.1555,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 13,
+      "mean_reward": 0.1577,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 14,
+      "mean_reward": 0.1592,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 15,
+      "mean_reward": -0.2943,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 16,
+      "mean_reward": -0.2927,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 17,
+      "mean_reward": -0.2258,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 18,
+      "mean_reward": -0.8367,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 19,
+      "mean_reward": -0.4212,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 20,
+      "mean_reward": 0.26,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 21,
+      "mean_reward": 0.089,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 22,
+      "mean_reward": -0.7635,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 23,
+      "mean_reward": 0.0985,
+      "verifiable_pass_rate": 0.333
+    },
+    {
+      "call": 24,
+      "mean_reward": -0.7693,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 25,
+      "mean_reward": -0.9385,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 26,
+      "mean_reward": -1.0243,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 27,
+      "mean_reward": -0.7598,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 28,
+      "mean_reward": -0.2862,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 29,
+      "mean_reward": 0.0738,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 30,
+      "mean_reward": -0.3175,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 31,
+      "mean_reward": -0.2893,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 32,
+      "mean_reward": -0.86,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 33,
+      "mean_reward": 0.1562,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 34,
+      "mean_reward": -0.8915,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 35,
+      "mean_reward": -0.9232,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 36,
+      "mean_reward": -0.2903,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 37,
+      "mean_reward": -0.782,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 38,
+      "mean_reward": 0.126,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 39,
+      "mean_reward": -0.806,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 40,
+      "mean_reward": -0.8427,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 41,
+      "mean_reward": -0.0818,
+      "verifiable_pass_rate": 0.333
+    },
+    {
+      "call": 42,
+      "mean_reward": 0.1482,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 43,
+      "mean_reward": -0.8785,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 44,
+      "mean_reward": 0.1607,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 45,
+      "mean_reward": -0.9412,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 46,
+      "mean_reward": 0.637,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 47,
+      "mean_reward": -0.2117,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 48,
+      "mean_reward": 0.1662,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 49,
+      "mean_reward": 0.0148,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 50,
+      "mean_reward": -0.2887,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 51,
+      "mean_reward": 0.1562,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 52,
+      "mean_reward": -0.1918,
+      "verifiable_pass_rate": 0.083
+    },
+    {
+      "call": 53,
+      "mean_reward": -0.7642,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 54,
+      "mean_reward": -0.822,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 55,
+      "mean_reward": -0.9157,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 56,
+      "mean_reward": -0.2152,
+      "verifiable_pass_rate": 0.083
+    },
+    {
+      "call": 57,
+      "mean_reward": 0.163,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 58,
+      "mean_reward": 0.6378,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 59,
+      "mean_reward": -0.3025,
+      "verifiable_pass_rate": 0.0
+    },
+    {
+      "call": 60,
+      "mean_reward": -0.3782,
+      "verifiable_pass_rate": 0.0
+    }
+  ]
+}

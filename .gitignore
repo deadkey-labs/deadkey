@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.db
+*.db-wal
+*.db-shm
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+data/reproducibility_receipt.json
+.DS_Store
+Thumbs.db

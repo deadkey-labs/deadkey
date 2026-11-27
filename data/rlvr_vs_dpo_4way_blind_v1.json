@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-11-27T10:17:47.811398+00:00",
+  "hardware": "Lenovo Legion 7i Pro Gen 8 \u00b7 RTX 4080 Laptop 12 GB",
+  "probe_count": 24,
+  "summary_rows": [
+    {
+      "model": "qwen3-8b-stock",
+      "label": "Stock Qwen3-8B",
+      "raw": "9/24",
+      "raw_pct": 37.5,
+      "tier1": "16/24",
+      "t1_pct": 66.7,
+      "tier1_plus_tier2": "24/24",
+      "t2_pct": 100.0,
+      "fpr_pct": 0.0,
+      "avg_critic_ms": 4824.7,
+      "t2_rescues": 8
+    },
+    {
+      "model": "qwen3-8b-dpo-125b",
+      "label": "125B-Teacher DPO",
+      "raw": "6/24",
+      "raw_pct": 25.0,
+      "tier1": "16/24",
+      "t1_pct": 66.7,
+      "tier1_plus_tier2": "24/24",
+      "t2_pct": 100.0,
+      "fpr_pct": 0.0,
+      "avg_critic_ms": 5242.3,
+      "t2_rescues": 8
+    },
+    {
+      "model": "qwen3-8b-rlvr-grpo",
+      "label": "Teacher-Free RLVR-GRPO",
+      "raw": "8/24",
+      "raw_pct": 33.3,
+      "tier1": "16/24",
+      "t1_pct": 66.7,
+      "tier1_plus_tier2": "24/24",
+      "t2_pct": 100.0,
+      "fpr_pct": 0.0,
+      "avg_critic_ms": 5078.7,
+      "t2_rescues": 8
+    },
+    {
+      "model": "qwen3-8b-dpo-grpo",
+      "label": "DPO + RLVR-GRPO",
+      "raw": "6/24",
+      "raw_pct": 25.0,
+      "tier1": "16/24",
+      "t1_pct": 66.7,
+      "tier1_plus_tier2": "24/24",
+      "t2_pct": 100.0,
+      "fpr_pct": 0.0,
+      "avg_critic_ms": 5443.5,
+      "t2_rescues": 8
+    }
+  ]
+}
