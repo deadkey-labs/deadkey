@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "deadkey"
-version = "0.9.5"
+version = "0.9.6"
 description = "A local AI that can't lie about what's on your disk — 0-VRAM bi-temporal SQLite memory, 0.01ms epistemic gate, and cartridge-isolated MCP/A2A/OpenAI proxy."
 readme = "README.md"
 requires-python = ">=3.10"

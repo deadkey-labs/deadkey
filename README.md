@@ -72,6 +72,29 @@ With **default Qwen3 `<think>` mode ON** (`rlvr_vs_dpo_4way_blind_v1.json`), hid
 
 ![RLVR vs DPO Ablation](assets/deadkey_chart_2_rlvr_vs_dpo.png)
 
+### `v0.9.6` — `80.75 KiB` GGUF Control Vector vs. `5.03 GB` DPO & The Over-Refusal Cliff
+
+We exported a sparse **`80.75 KiB`** (`82,688 B`, 5 F32 tensors across layers `[10, 11, 12, 14, 15]`) native `llama.cpp` GGUF control vector (`data/deadkey_qwen3_8b_cvec_v1.gguf`, zero weight updates, `+4 MiB` VRAM, `-0.9%` tok/s at `~245 t/s`) via `bench/export_steering_to_gguf.py` and benchmarked it head-to-head against our `5.03 GB` QLoRA DPO checkpoint on stock `Qwen3-8B Q4_K_M` (`NO-THINK`, RTX 5090):
+
+```bash
+llama-server -m Qwen3-8B-Base-Q4_K_M.gguf --control-vector-scaled data/deadkey_qwen3_8b_cvec_v1.gguf:1.8
+```
+
+![80.75 KiB Control Vector vs 5.03 GB DPO and Over-Refusal Cliff](assets/deadkey_chart_5_cvec_pareto_cliff.png)
+
+| Arm (`Qwen3-8B Q4_K_M`, NO-THINK) | Artifact Delta | Fresh Held-Out 24-Probe (`6/6` benign) | Paired McNemar (Held-Out) | External `LongMemEval` (`N=78`, BT) | Paired McNemar (`LongMemEval`) |
+|---|---:|---:|---:|---:|---:|
+| `Base (s=0.0)` | `0 B` | `16/24` (`66.7%`, CI95 `[46.7, 82.0]`) | — | `59/78` (`75.6%`, `1` ref) | — |
+| `5.03 GB DPO (s=0.0)` | `5.03 GB` | `17/24` (`70.8%`, CI95 `[50.8, 85.1]`) | `1W/0L` (`p=1.0` vs base) | `59/78` (`75.6%`, `1` ref) | `1W/1L` (`p=1.0` vs base) |
+| **`80.75 KiB CVEC (s=1.8, frozen)`** | **`80.75 KiB`** | **`22/24` (`91.7%`, CI95 `[74.2, 97.7]`, `16/18` adv, `6/6` benign)** | **`6W/0L` (`p=0.0312` vs base; `5W/0L`, `p=0.0625` vs DPO)** | `57/78` (`73.1%`, CI95 `[62.3, 81.7]`, `4` ref) | `5B/3C` (`p=0.7266` vs base) |
+| **`80.75 KiB CVEC (s=3.0)`** | `80.75 KiB` | `22/24` (`91.7%`, `16/18` adv, `6/6` benign) | `7W/1L` (`p=0.0703` vs base) | **`35/78` (`44.9%`, `54/78` false refusals!)** | **`25B/1C` (`p < 1e-6` vs base)** |
+| `DPO + CVEC (s=3.0)` | `5.03 GB + 80.75 KiB` | — | — | `34/78` (`43.6%`, `55/78` false refusals) | `p < 1e-6` (does not compound) |
+
+- **Honest Takeaways & Method Disclosures:**
+  1. At frozen `s=1.8`, the `80.75 KiB` control vector significantly outperformed base (`p=0.0312`, `6W/0L`) and edged the `5.03 GB` DPO checkpoint (`5W/0L`, `p=0.0625`, not statistically significant at `N=24`) on 24 unseen held-out probes while answering `6/6` benign controls cleanly.
+  2. **The Over-Refusal Cliff (`s >= 2.2`):** Cranking static steering to `s=3.0` added `0` net points on held-out probes (`22/24`) while collapsing external `LongMemEval` from `75.6% → 44.9%` (`54/78` false refusals, `p < 1e-6`) — demonstrating empirically why global activation steering is a blunt dial and why local agents still need an external `0.01 ms` deterministic truth gate + bi-temporal memory.
+  3. **Statistical & Judge Disclosures:** On `LongMemEval`, `N=78` is underpowered to prove zero accuracy loss at `s=1.8` (`73.1%` vs `75.6%`, `p=0.7266`, overlapping 95% Wilson CIs). All `LongMemEval` arms were graded by a single fixed unsteered judge (`Qwen3-8B-Base-Q4_K_M`, `scale=0.0` — the base model grading its own variants), alongside deterministic exact-substring match counts in `data/four_arm_dpo_vs_cvec_v1.json`, `data/cvec_pareto_sweep_v1.json`, and `data/heldout_and_mcnemar_v1.json`.
+
 ### Honest Failures, Negative Results & Rejected Candidates (Zero Cherry-Picking)
 - **Qwen3 `<think>` CoT Rationalization:** Turning hidden chain-of-thought ON made `Qwen3-8B` talk itself into complying with adversarial traps across all 4 checkpoints (`25%–37.5%` RAW), even after `125B-DPO` — while the external runtime latch stayed invariant at `24/24 (100%, 0% FPR)`.
 - **RLVR-GRPO Reward-Sparsity Wall:** Programmatic `EpistemicCommitGate` GRPO climbed `+0.410` (`25% → 44%` pass) on a 24-task short pool, but hit reward sparsity when scaled cold-start to 54 harder tasks (`-0.303 → -0.432`); warm-starting from DPO LoRA recovered positive ascent (`-0.307 → -0.154`, `+0.153`).
